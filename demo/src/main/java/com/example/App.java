@@ -81,7 +81,33 @@ try {
                     break; 
 
                 case "S":
-                    System.out.println("\nSearch is coming soon!");
+                    System.out.print("\nEnter song title to search: ");
+                    String searchTitle = scanner.nextLine().trim();
+
+                    boolean found = false;
+
+                    for (Song song : songs) {
+                        if (song.name().toLowerCase().contains(searchTitle.toLowerCase())) {  //using contains so the user can search a part of a title
+                            System.out.println("\nTitle: " + song.name());
+                            System.out.println("Artist: " + song.artist());
+                            System.out.println("Year: " + song.year());
+                            System.out.println("Genre: " + song.genre());
+
+                            System.out.print("\nPlay this song? (Y/N): ");                  //ask if user wants to play the song
+                            String playChoice = scanner.nextLine().trim();
+
+                            if (playChoice.equalsIgnoreCase("Y")) {
+                                play(song);
+                            }
+
+                            found = true;
+                        }
+                    }
+
+                    if (!found) {
+                        System.out.println("No songs found.");
+                    }
+
                     break;
 
                 case "L":
