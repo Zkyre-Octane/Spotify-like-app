@@ -4,27 +4,27 @@
     "artist": "Cali Swag District",
     "year": 2010,
     "genre": "Hip-Hop",
-    "fileName": "dougie-crop.wav"
+    "fileName": "demo/src/main/java/com/example/Sounds/dougie-crop.wav"
   },
   {
     "name": "Could've Been (Tik Tok Remix)",
     "artist": "H.E.R.",
     "year": 2018,
     "genre": "R&B",
-    "fileName": "her-crop.wav"
+    "fileName": "demo/src/main/java/com/example/Sounds/her-crop.wav"
   },
   {
     "name": "On Me",
     "artist": "Lil Baby",
     "year": 2020,
     "genre": "Hip-Hop",
-    "fileName": "lil-baby-crop.wav"
+    "fileName": "demo/src/main/java/com/example/Sounds/lil-baby-crop.wav"
   },
   {
     "name": "Industry Baby",
     "artist": "Lil Nas X",
     "year": 2021,
     "genre": "Hip-Hop",
-    "fileName": "lil-nas-x-crop.wav"
+    "fileName": "demo/src/main/java/com/example/Sounds/lil-nas-x-crop.wav"
   }
 ]

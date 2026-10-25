@@ -6,10 +6,36 @@ import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Scanner;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.io.File;
 
 public class App {
+    public static void play(Song song) {
+
+try {
+    File audioFile = new File(song.fileName());                 //locate audio file
+
+    Clip clip = AudioSystem.getClip();
+    clip.open(AudioSystem.getAudioInputStream(audioFile));
+
+    System.out.println("\nNow playing: " + song.name());
+    System.out.println("Artist: " + song.artist());
+    System.out.println("Year: " + song.year());
+    System.out.println("Genre: " + song.genre());
+    System.out.println("Filepath: " + song.fileName());
+
+    clip.start();                                               //begins playback
+
+} catch (Exception e) {
+    System.out.println("Could not play: " + song.name());
+    e.printStackTrace();
+}
+
+}
 
     public static void main(String[] args) {
+        int songNumber;
 
         try {
             FileReader reader = new FileReader("demo\\src\\main\\java\\com\\example\\audio-library.json");
@@ -40,8 +66,17 @@ public class App {
                 case "H":
                     System.out.println("\n=== Home ===");
 
-                    for (Song song : songs) {
-                        System.out.println(song.name() + " - " + song.artist());
+                    for (int i = 0; i < songs.size(); i++) {
+                    System.out.println((i + 1) + ". " + songs.get(i).name());
+                    }
+                    System.out.print("Enter song number to play: ");
+
+                    songNumber = Integer.parseInt(scanner.nextLine());
+
+                    if (songNumber >= 1 && songNumber <= songs.size()) {
+                        play(songs.get(songNumber - 1));
+                    } else {
+                        System.out.println("Invalid song number.");
                     }
                     break; 
 
@@ -52,14 +87,18 @@ public class App {
                 case "L":
                     System.out.println("\n=== Your Library ===");
 
-                    for (Song song : songs) {
-                        System.out.println(
-                            "Title: " + song.name() + "\n" +
-                            "Artist: " + song.artist() + "\n" +
-                            "Year: " + song.year() + "\n" +
-                            "Genre: " + song.genre() + "\n" +
-                            "File: " + song.fileName() + "\n"
-                        );
+                    for (int i = 0; i < songs.size(); i++) {
+                        System.out.println((i + 1) + "." + songs.get(i).name());
+                    }
+
+                    System.out.print("Enter song number to play: ");
+
+                    songNumber = Integer.parseInt(scanner.nextLine());
+
+                    if (songNumber >= 1 && songNumber <= songs.size()) {
+                        play(songs.get(songNumber - 1));
+                    } else {
+                        System.out.println("Invalid song number.");
                     }
                     break;
 
