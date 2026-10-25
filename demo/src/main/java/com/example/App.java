@@ -35,7 +35,7 @@ try {
 }
 
     public static void main(String[] args) {
-        int songNumber;
+        int songNumber; //user input for song number used by home and library 
 
         try {
             FileReader reader = new FileReader("demo\\src\\main\\java\\com\\example\\audio-library.json");
@@ -50,7 +50,8 @@ try {
 
             Scanner scanner = new Scanner(System.in);
             String choice;
-
+            
+            //Main menu
             do {
             System.out.println("\n=== Spotify-like Player ===");
             System.out.println("[H] Home");
@@ -60,14 +61,14 @@ try {
             System.out.print("Choose an option: ");
 
             choice = scanner.nextLine().trim();
+        
+            switch (choice.toUpperCase()) {  
 
-            switch (choice.toUpperCase()) {
-
-                case "H":
+                case "H": //HOME
                     System.out.println("\n=== Home ===");
 
                     for (int i = 0; i < songs.size(); i++) {
-                    System.out.println((i + 1) + ". " + songs.get(i).name());
+                    System.out.println((i + 1) + ". " + songs.get(i).name()); //songs listed by number
                     }
                     System.out.print("Enter song number to play: ");
 
@@ -80,9 +81,9 @@ try {
                     }
                     break; 
 
-                case "S":
+                case "S": //SEARCH
                     System.out.print("\nEnter song title to search: ");
-                    String searchTitle = scanner.nextLine().trim();
+                    String searchTitle = scanner.nextLine().trim(); 
 
                     boolean found = false;
 
@@ -97,20 +98,20 @@ try {
                             String playChoice = scanner.nextLine().trim();
 
                             if (playChoice.equalsIgnoreCase("Y")) {
-                                play(song);
+                                play(song); //play the song if the user chooses yes
                             }
 
-                            found = true;
+                            found = true; 
                         }
                     }
 
                     if (!found) {
-                        System.out.println("No songs found.");
+                        System.out.println("No songs found."); //if no songs found, print this message
                     }
 
                     break;
 
-                case "L":
+                case "L": //LIBRARY
                     System.out.println("\n=== Your Library ===");
 
                     for (int i = 0; i < songs.size(); i++) {
@@ -128,11 +129,11 @@ try {
                     }
                     break;
 
-                case "Q":
+                case "Q": //QUIT
                     System.out.println("Goodbye!");
                     break;
 
-                default:
+                default: //INVALID INPUT
                     System.out.println(
                         "Invalid option. Please choose H, S, L, or Q."
                     );
