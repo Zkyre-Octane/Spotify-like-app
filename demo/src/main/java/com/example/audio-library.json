@@ -1,13 +1,30 @@
-package com.example;
-
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
-}
+[
+  {
+    "name": "Teach Me How to Dougie",
+    "artist": "Cali Swag District",
+    "year": 2010,
+    "genre": "Hip-Hop",
+    "fileName": "dougie-crop.wav"
+  },
+  {
+    "name": "Could've Been (Tik Tok Remix)",
+    "artist": "H.E.R.",
+    "year": 2018,
+    "genre": "R&B",
+    "fileName": "her-crop.wav"
+  },
+  {
+    "name": "On Me",
+    "artist": "Lil Baby",
+    "year": 2020,
+    "genre": "Hip-Hop",
+    "fileName": "lil-baby-crop.wav"
+  },
+  {
+    "name": "Industry Baby",
+    "artist": "Lil Nas X",
+    "year": 2021,
+    "genre": "Hip-Hop",
+    "fileName": "lil-nas-x-crop.wav"
+  }
+]
